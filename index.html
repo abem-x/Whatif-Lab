@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WhatIf Lab is an interactive virtual science laboratory for physics, chemistry, and biology experiments."
+    />
+    <title>WhatIf Lab</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home" aria-label="WhatIf Lab home">
+          <span class="brand-mark">W</span>
+          <span>WhatIf Lab</span>
+        </a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#physics">Physics</a>
+          <a href="#chemistry">Chemistry</a>
+          <a href="#biology">Biology</a>
+          <a href="#challenge">Challenge</a>
+          <a href="#progress">Progress</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero section-shell">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Change It. Test It. Discover It.</p>
+            <h1>Explore science by testing the variables that change the world.</h1>
+            <p class="lead">
+              WhatIf Lab turns big ideas into hands-on virtual experiments. Adjust conditions,
+              run simulations, compare outcomes, and learn why the results happen.
+            </p>
+            <div class="cta-row">
+              <a class="button primary" href="#experiments">Start Exploring</a>
+              <a class="button secondary" href="#challenge">Try a Challenge</a>
+            </div>
+            <div class="mini-stats" aria-label="Lab highlights">
+              <div>
+                <strong>3</strong>
+                <span>disciplines</span>
+              </div>
+              <div>
+                <strong>6</strong>
+                <span>active labs</span>
+              </div>
+              <div>
+                <strong>∞</strong>
+                <span>“what if?” questions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Animated scientific visualization">
+            <div class="orb orb-one"></div>
+            <div class="orb orb-two"></div>
+            <div class="orb orb-three"></div>
+            <div class="pulse-ring"></div>
+            <svg viewBox="0 0 420 320" role="img" aria-label="Futuristic science diagram">
+              <defs>
+                <linearGradient id="lineA" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#71d8ff" />
+                  <stop offset="100%" stop-color="#23a6d5" />
+                </linearGradient>
+                <linearGradient id="lineB" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#a77aff" />
+                  <stop offset="100%" stop-color="#6a4cff" />
+                </linearGradient>
+                <linearGradient id="lineC" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6fe9ca" />
+                  <stop offset="100%" stop-color="#2aa86a" />
+                </linearGradient>
+              </defs>
+              <path d="M40 220 C130 120, 160 150, 220 110 S340 70, 380 160" fill="none" stroke="url(#lineA)" stroke-width="4" stroke-linecap="round" />
+              <path d="M60 260 C150 210, 200 255, 270 208 S340 170, 378 190" fill="none" stroke="url(#lineB)" stroke-width="4" stroke-linecap="round" />
+              <path d="M50 145 C120 75, 175 110, 230 90 S330 80, 390 120" fill="none" stroke="url(#lineC)" stroke-width="4" stroke-linecap="round" />
+              <circle class="glow-dot" cx="110" cy="190" r="10" />
+              <circle class="glow-dot" cx="215" cy="130" r="9" />
+              <circle class="glow-dot" cx="320" cy="170" r="11" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="experiments" class="section-shell">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Explore the lab</p>
+            <h2>Choose a scientific system to investigate</h2>
+          </div>
+          <div class="subject-grid">
+            <article class="subject-card physics-card">
+              <div class="subject-icon">P</div>
+              <h3>Physics</h3>
+              <p>Model motion, gravity, and vectors with a live projectile simulator.</p>
+              <a href="#physics" class="text-link">Open Physics Lab</a>
+            </article>
+            <article class="subject-card chemistry-card">
+              <div class="subject-icon">C</div>
+              <h3>Chemistry</h3>
+              <p>Build atoms, inspect charge, and explore the pH scale in simple lab models.</p>
+              <a href="#chemistry" class="text-link">Open Chemistry Lab</a>
+            </article>
+            <article class="subject-card biology-card">
+              <div class="subject-icon">B</div>
+              <h3>Biology</h3>
+              <p>Compare cells, trace water movement, and explain how systems change.</p>
+              <a href="#biology" class="text-link">Open Biology Lab</a>
+            </article>
+          </div>
+
+          <div class="daily-card">
+            <div>
+              <p class="eyebrow">Daily What If?</p>
+              <h3>If a projectile launched at 30° on the Moon traveled twice as fast, how would the range change?</h3>
+            </div>
+            <a href="#challenge" class="button secondary">Explore the challenge</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="physics" class="section-shell lab-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Physics Lab</p>
+            <h2>Projectile motion</h2>
+          </div>
+          <div class="lab-grid">
+            <div class="sim-panel">
+              <div class="control-row">
+                <label for="gravity-select">Gravity</label>
+                <select id="gravity-select">
+                  <option value="earth">Earth (9.81 m/s²)</option>
+                  <option value="moon">Moon (1.62 m/s²)</option>
+                  <option value="mars">Mars (3.71 m/s²)</option>
+                </select>
+              </div>
+
+              <div class="slider-row">
+                <label for="speed-slider">Initial speed</label>
+                <div class="with-value">
+                  <input id="speed-slider" type="range" min="10" max="120" step="1" value="50" />
+                  <output id="speed-output">50 m/s</output>
+                </div>
+              </div>
+
+              <div class="slider-row">
+                <label for="angle-slider">Launch angle</label>
+                <div class="with-value">
+                  <input id="angle-slider" type="range" min="10" max="80" step="1" value="52" />
+                  <output id="angle-output">52°</output>
+                </div>
+              </div>
+
+              <div class="button-row">
+                <button id="physics-run" class="button primary" type="button">Run</button>
+                <button id="physics-pause" class="button secondary" type="button">Pause</button>
+                <button id="physics-reset" class="button ghost" type="button">Reset</button>
+                <button id="physics-replay" class="button ghost" type="button">Replay</button>
+              </div>
+
+              <canvas id="projectile-canvas" width="560" height="360" aria-label="Projectile simulation"></canvas>
+
+              <div class="result-grid">
+                <div class="metric"><span>Time</span><strong id="time-output">0.00 s</strong></div>
+                <div class="metric"><span>Horizontal distance</span><strong id="distance-output">0.00 m</strong></div>
+                <div class="metric"><span>Max height</span><strong id="height-output">0.00 m</strong></div>
+                <div class="metric"><span>Flight time</span><strong id="flight-output">0.00 s</strong></div>
+              </div>
+            </div>
+
+            <aside class="info-panel">
+              <div class="info-card">
+                <h3>How it works</h3>
+                <p>
+                  We model a projectile launched from and landing at the same height with no air
+                  resistance. The motion is split into horizontal and vertical parts.
+                </p>
+                <ul class="equation-list">
+                  <li>x(t) = v₀ cos(θ) · t</li>
+                  <li>y(t) = v₀ sin(θ) · t − ½gt²</li>
+                  <li>R = v₀² sin(2θ) / g</li>
+                </ul>
+                <p class="note">This is a simplified school model that neglects air resistance and drag.</p>
+              </div>
+              <div class="info-card">
+                <h3>Comparison</h3>
+                <p>Earth and Moon curves are shown together using the same launch speed and angle.</p>
+                <div class="legend">
+                  <span><i class="legend-swatch earth"></i>Earth</span>
+                  <span><i class="legend-swatch moon"></i>Moon</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="chemistry" class="section-shell lab-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Chemistry Lab</p>
+            <h2>Atom Builder & pH Lab</h2>
+          </div>
+          <div class="lab-grid double-grid">
+            <div class="sim-panel">
+              <h3>Atom Builder</h3>
+              <div class="control-row">
+                <label for="proton-slider">Protons</label>
+                <input id="proton-slider" type="range" min="1" max="20" step="1" value="8" />
+              </div>
+              <div class="control-row">
+                <label for="neutron-slider">Neutrons</label>
+                <input id="neutron-slider" type="range" min="0" max="20" step="1" value="8" />
+              </div>
+              <div class="control-row">
+                <label for="electron-slider">Electrons</label>
+                <input id="electron-slider" type="range" min="0" max="20" step="1" value="8" />
+              </div>
+
+              <div class="atom-summary">
+                <div><span>Atomic number</span><strong id="atomic-number">8</strong></div>
+                <div><span>Mass number</span><strong id="mass-number">16</strong></div>
+                <div><span>Net charge</span><strong id="charge-number">0</strong></div>
+                <div><span>Element</span><strong id="element-name">Oxygen</strong></div>
+              </div>
+
+              <div id="atom-visual" class="atom-visual" aria-label="Simplified atom diagram"></div>
+              <p class="note">Teaching model: electron shells are simplified for classroom learning and are not a full physical model of an atom.</p>
+            </div>
+
+            <div class="sim-panel">
+              <h3>pH laboratory</h3>
+              <div class="slider-row">
+                <label for="ph-slider">Solution pH</label>
+                <div class="with-value">
+                  <input id="ph-slider" type="range" min="0" max="14" step="0.1" value="7" />
+                  <output id="ph-output">7.0</output>
+                </div>
+              </div>
+              <div class="ph-scale" aria-hidden="true">
+                <span class="acidic">Acidic</span>
+                <span class="neutral">Neutral</span>
+                <span class="basic">Basic</span>
+              </div>
+              <div class="ph-readout">
+                <strong id="ph-category">Neutral</strong>
+                <p id="ph-explanation">A pH of 7 is considered neutral on this simplified educational scale.</p>
+              </div>
+              <ul class="equation-list">
+                <li>pH = −log₁₀[H⁺]</li>
+                <li>Lower pH = more acidic</li>
+                <li>Higher pH = more basic</li>
+              </ul>
+              <p class="note">pH describes the balance of hydrogen ions in a solution; it does not identify every chemical or hazard by itself.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="biology" class="section-shell lab-section">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Biology Lab</p>
+            <h2>Cell Explorer & Osmosis</h2>
+          </div>
+          <div class="lab-grid double-grid">
+            <div class="sim-panel">
+              <h3>Cell Explorer</h3>
+              <div class="control-row">
+                <label for="cell-type">Cell type</label>
+                <select id="cell-type">
+                  <option value="animal">Animal cell</option>
+                  <option value="plant">Plant cell</option>
+                </select>
+              </div>
+              <div class="cell-selector" id="cell-organelle-list" aria-label="Organelle selection"></div>
+              <div id="cell-diagram" class="cell-diagram" aria-label="Cell diagram"></div>
+              <div id="organelle-info" class="organelle-info"></div>
+            </div>
+
+            <div class="sim-panel">
+              <h3>Osmosis Simulator</h3>
+              <div class="control-row">
+                <label for="solute-a">Solution A concentration</label>
+                <input id="solute-a" type="range" min="0" max="100" step="1" value="70" />
+              </div>
+              <div class="control-row">
+                <label for="solute-b">Solution B concentration</label>
+                <input id="solute-b" type="range" min="0" max="100" step="1" value="30" />
+              </div>
+              <div class="osmosis-visual" aria-live="polite">
+                <div class="membrane-box">
+                  <div class="side side-a"><span>Side A</span><strong id="side-a-label">70%</strong></div>
+                  <div class="membrane" aria-hidden="true"></div>
+                  <div class="side side-b"><span>Side B</span><strong id="side-b-label">30%</strong></div>
+                </div>
+                <div id="osmosis-arrow" class="osmosis-arrow left-right">→</div>
+              </div>
+              <p id="osmosis-summary" class="note">Net water movement: from Side B to Side A.</p>
+              <p class="note">This is a conceptual model of water moving across a selectively permeable membrane, not a literal molecular-scale simulation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="challenge" class="section-shell">
+        <div class="container challenge-wrap">
+          <div class="section-heading">
+            <p class="eyebrow">Challenge mode</p>
+            <h2>Predict, test, and learn</h2>
+          </div>
+          <div class="challenge-panel">
+            <div class="challenge-meta">
+              <span id="challenge-subject">Physics</span>
+              <span id="challenge-difficulty">Difficulty: beginner</span>
+            </div>
+            <div class="progress-bar">
+              <div id="challenge-progress" class="progress-fill" style="width: 0%"></div>
+            </div>
+            <h3 id="challenge-question">Question text</h3>
+            <div id="challenge-options" class="question-options"></div>
+            <div id="challenge-feedback" class="feedback-box" aria-live="polite"></div>
+            <div class="challenge-actions">
+              <button id="challenge-submit" class="button primary" type="button">Check prediction</button>
+              <button id="challenge-skip" class="button ghost" type="button">Skip</button>
+              <button id="challenge-next" class="button secondary" type="button">Next challenge</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="progress" class="section-shell">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Progress dashboard</p>
+            <h2>Your lab journey</h2>
+          </div>
+          <div class="progress-grid">
+            <div class="progress-panel">
+              <h3>Achievements</h3>
+              <div id="badge-list" class="badge-list"></div>
+            </div>
+            <div class="progress-panel">
+              <h3>Summary</h3>
+              <div class="summary-list">
+                <div><span>Completed labs</span><strong id="completed-count">0</strong></div>
+                <div><span>Challenge score</span><strong id="challenge-score">0/0</strong></div>
+                <div><span>Badges earned</span><strong id="badge-count">0</strong></div>
+              </div>
+              <button id="report-button" class="button primary" type="button">Generate report</button>
+              <button id="print-report" class="button secondary" type="button">Print report</button>
+              <button id="reset-progress" class="button ghost" type="button">Reset progress</button>
+              <div id="report-output" class="report-box" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <a class="brand footer-brand" href="#home">
+            <span class="brand-mark">W</span>
+            <span>WhatIf Lab</span>
+          </a>
+        </div>
+        <p>Educational simulations for inquiry-based learning.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

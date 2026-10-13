@@ -1,0 +1,906 @@
+:root {
+  --bg: #07152b;
+  --bg-soft: #0c1d35;
+  --panel: rgba(15, 28, 48, 0.9);
+  --panel-alt: rgba(19, 34, 57, 0.98);
+  --line: rgba(140, 185, 255, 0.18);
+  --text: #eff7ff;
+  --muted: #b5cbec;
+  --physics: #5ad8ff;
+  --chemistry: #9a7dff;
+  --biology: #5be3b5;
+  --warning: #ffd166;
+  --danger: #ff7a7a;
+  --success: #7af0c1;
+  --shadow: 0 18px 45px rgba(3, 10, 24, 0.45);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(51, 116, 255, 0.12), transparent 35%),
+    linear-gradient(180deg, #07152b 0%, #0d1830 100%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+img, svg, canvas {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+.container {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.section-shell {
+  padding: 3.5rem 0;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  background: rgba(7, 21, 43, 0.7);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 72px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--physics), #6b7bff);
+  box-shadow: 0 0 18px rgba(90, 216, 255, 0.5);
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.3rem;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--text);
+}
+
+.hero {
+  padding-top: 5rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  color: var(--physics);
+  margin: 0 0 0.8rem;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 6vw, 4.6rem);
+  line-height: 1.04;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 42rem;
+  font-size: 1.1rem;
+}
+
+.cta-row,
+.button-row,
+.challenge-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.4rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.8rem 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button.primary {
+  background: linear-gradient(135deg, #48c7ff 0%, #5b7cff 100%);
+  color: #04182d;
+  box-shadow: 0 12px 30px rgba(72, 199, 255, 0.35);
+}
+
+.button.secondary {
+  background: rgba(120, 145, 255, 0.12);
+  border-color: rgba(120, 145, 255, 0.3);
+  color: var(--text);
+}
+
+.button.ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text);
+}
+
+.mini-stats {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.mini-stats div {
+  background: rgba(12, 29, 53, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 0.8rem;
+  display: grid;
+  gap: 0.15rem;
+  justify-items: center;
+}
+
+.mini-stats strong {
+  font-size: 1.7rem;
+  color: var(--physics);
+}
+
+.mini-stats span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 8px);
+  background: radial-gradient(circle at center, rgba(55, 122, 255, 0.12), rgba(8, 15, 30, 0.7));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-visual svg {
+  width: min(92%, 460px);
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.orb,
+.pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+.orb-one {
+  width: 200px;
+  height: 200px;
+  background: rgba(90, 216, 255, 0.12);
+  top: 18%;
+  left: 10%;
+}
+
+.orb-two {
+  width: 240px;
+  height: 240px;
+  background: rgba(154, 125, 255, 0.1);
+  right: 8%;
+  bottom: 12%;
+}
+
+.orb-three {
+  width: 160px;
+  height: 160px;
+  background: rgba(91, 227, 181, 0.09);
+  bottom: 14%;
+  left: 38%;
+}
+
+.pulse-ring {
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(110, 200, 255, 0.2);
+  border-radius: 50%;
+  animation: pulse 7s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.97); opacity: 0.4; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.glow-dot {
+  fill: rgba(255,255,255,0.8);
+  filter: drop-shadow(0 0 14px rgba(113, 216, 255, 0.8));
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.subject-card,
+.sim-panel,
+.progress-panel,
+.challenge-panel,
+.info-card,
+.daily-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(11, 23, 40, 0.88);
+  box-shadow: var(--shadow);
+}
+
+.subject-card {
+  padding: 1.5rem;
+}
+
+.daily-card {
+  margin-top: 1.4rem;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.subject-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.physics-card .subject-icon {
+  background: rgba(90, 216, 255, 0.12);
+  color: var(--physics);
+}
+
+.chemistry-card .subject-icon {
+  background: rgba(154, 125, 255, 0.12);
+  color: var(--chemistry);
+}
+
+.biology-card .subject-icon {
+  background: rgba(91, 227, 181, 0.12);
+  color: var(--biology);
+}
+
+.text-link {
+  color: var(--physics);
+  font-weight: 700;
+}
+
+.lab-section {
+  scroll-margin-top: 90px;
+}
+
+.section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 1.25rem;
+}
+
+.double-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sim-panel,
+.info-card,
+.progress-panel,
+.challenge-panel {
+  padding: 1.4rem;
+}
+
+.control-row,
+.slider-row {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.with-value {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+output {
+  min-width: 5.2rem;
+  text-align: right;
+  color: var(--muted);
+}
+
+select,
+input[type="range"] {
+  width: 100%;
+}
+
+select {
+  min-height: 2.7rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: rgba(17, 31, 52, 0.9);
+  color: var(--text);
+  padding: 0.5rem 0.7rem;
+}
+
+input[type="range"] {
+  accent-color: var(--physics);
+}
+
+.result-grid,
+.atom-summary,
+.summary-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 0.8rem;
+}
+
+.metric,
+.atom-summary div,
+.summary-list div {
+  background: rgba(13, 30, 49, 0.75);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.metric span,
+.atom-summary span,
+.summary-list span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+#projectile-canvas {
+  width: 100%;
+  height: auto;
+  background: linear-gradient(180deg, rgba(11, 26, 45, 0.85), rgba(7, 16, 27, 0.95));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-top: 1rem;
+}
+
+.equation-list {
+  margin: 0.8rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.note {
+  color: var(--muted);
+  margin-top: 0.9rem;
+  font-size: 0.92rem;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+.legend-swatch.earth {
+  background: var(--physics);
+}
+
+.legend-swatch.moon {
+  background: #e0c2ff;
+}
+
+.atom-visual {
+  position: relative;
+  min-height: 220px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin-top: 0.75rem;
+  background: radial-gradient(circle at center, rgba(128, 133, 255, 0.09), rgba(5, 10, 18, 0.72));
+}
+
+.atom-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff4c4, #f1ba57 55%, #be7a00 100%);
+  box-shadow: 0 0 18px rgba(255, 210, 92, 0.4);
+}
+
+.electron {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #7fe6ff;
+  box-shadow: 0 0 12px rgba(127, 230, 255, 0.7);
+  transform: translate(-50%, -50%);
+}
+
+.ph-scale {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.ph-scale span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.1rem;
+  font-weight: 700;
+}
+
+.ph-scale .acidic {
+  background: linear-gradient(90deg, rgba(255, 123, 123, 0.8), rgba(255, 170, 84, 0.5));
+}
+
+.ph-scale .neutral {
+  background: linear-gradient(90deg, rgba(94, 123, 237, 0.75), rgba(143, 199, 255, 0.6));
+}
+
+.ph-scale .basic {
+  background: linear-gradient(90deg, rgba(104, 214, 168, 0.65), rgba(74, 146, 114, 0.8));
+}
+
+.ph-readout {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: rgba(16, 32, 55, 0.85);
+  border: 1px solid var(--line);
+}
+
+.cell-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.cell-selector button {
+  background: rgba(17, 32, 53, 0.9);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+.cell-selector button.active {
+  border-color: var(--biology);
+  background: rgba(91, 227, 181, 0.15);
+}
+
+.cell-diagram {
+  min-height: 250px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(11, 30, 48, 0.9), rgba(11, 18, 28, 0.9));
+  position: relative;
+  overflow: hidden;
+}
+
+.cell-shape {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  height: 68%;
+  border-radius: 45% 52% 42% 58% / 47% 40% 60% 53%;
+  background: rgba(91, 227, 181, 0.18);
+  border: 2px solid rgba(91, 227, 181, 0.8);
+}
+
+.plant .cell-shape {
+  background: rgba(126, 226, 128, 0.12);
+  border-color: rgba(126, 226, 128, 0.8);
+}
+
+.organelle {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: rgba(163, 248, 209, 0.9);
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.5);
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.organelle.active {
+  box-shadow: 0 0 0 4px rgba(91, 227, 181, 0.23);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.organelle.nucleus {
+  width: 26px;
+  height: 26px;
+  background: rgba(164, 133, 255, 0.92);
+}
+
+.organelle.mitochondria { background: rgba(255, 183, 120, 0.8); }
+.organelle.ribosome { background: rgba(123, 214, 255, 0.9); }
+.organelle.cell-wall { background: rgba(140, 205, 96, 0.9); }
+.organelle.chloroplast { background: rgba(104, 210, 157, 0.9); }
+.organelle.vacuole { background: rgba(145, 168, 255, 0.9); }
+.organelle.cell-membrane { background: rgba(214, 207, 118, 0.9); }
+
+.organelle-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(16, 31, 52, 0.75);
+}
+
+.organelle-info h4 {
+  margin: 0 0 0.3rem;
+}
+
+.osmosis-visual {
+  margin-top: 1rem;
+  padding: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(16, 33, 49, 0.75);
+}
+
+.membrane-box {
+  display: grid;
+  grid-template-columns: 1fr 8px 1fr;
+  min-height: 180px;
+  align-items: stretch;
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(10, 21, 34, 0.75);
+}
+
+.side {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--text);
+}
+
+.side-a {
+  background: rgba(76, 122, 214, 0.15);
+}
+
+.side-b {
+  background: rgba(112, 214, 162, 0.1);
+}
+
+.membrane {
+  background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(77, 88, 100, 0.8));
+  border-left: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.osmosis-arrow {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-top: 0.7rem;
+  color: var(--physics);
+}
+
+.challenge-wrap {
+  max-width: 860px;
+}
+
+.challenge-panel {
+  background: rgba(11, 22, 39, 0.9);
+}
+
+.challenge-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 0.8rem;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 1rem 0 1.4rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--physics), var(--chemistry), var(--biology));
+  border-radius: inherit;
+}
+
+.question-options {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.option-button {
+  width: 100%;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: rgba(17, 31, 52, 0.8);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.option-button.selected {
+  border-color: var(--physics);
+  background: rgba(90, 216, 255, 0.1);
+}
+
+.option-button.correct {
+  border-color: var(--success);
+  background: rgba(122, 240, 193, 0.08);
+}
+
+.option-button.incorrect {
+  border-color: var(--danger);
+  background: rgba(255, 122, 122, 0.08);
+}
+
+.feedback-box {
+  min-height: 2.6rem;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: rgba(13, 29, 49, 0.8);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.badge-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.7rem;
+}
+
+.badge {
+  padding: 0.85rem 0.8rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--line);
+  background: rgba(19, 35, 58, 0.9);
+  color: var(--muted);
+}
+
+.badge.earned {
+  border-color: rgba(122, 240, 193, 0.8);
+  color: var(--text);
+  background: rgba(122, 240, 193, 0.08);
+}
+
+.report-box {
+  margin-top: 1rem;
+  white-space: pre-wrap;
+  background: rgba(14, 28, 44, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1rem;
+  color: var(--muted);
+  min-height: 120px;
+}
+
+.site-footer {
+  padding: 1.5rem 0 2.5rem;
+  border-top: 1px solid var(--line);
+  background: rgba(6, 14, 24, 0.8);
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.footer-brand {
+  margin-right: 1rem;
+}
+
+@media print {
+  body {
+    background: white;
+    color: #122033;
+  }
+
+  .topbar,
+  .button,
+  .main-nav,
+  #print-report,
+  #report-button,
+  #reset-progress,
+  .cta-row,
+  .daily-card,
+  footer,
+  .challenge-actions {
+    display: none !important;
+  }
+
+  .section-shell,
+  .sim-panel,
+  .info-card,
+  .progress-panel,
+  .challenge-panel {
+    box-shadow: none;
+    background: white;
+    border: 1px solid #dfe7f1;
+    color: #122033;
+  }
+
+  .report-box {
+    background: white;
+    border: 1px solid #dfe7f1;
+    color: #122033;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-grid,
+  .lab-grid,
+  .double-grid,
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-wrap,
+  .footer-wrap,
+  .challenge-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    gap: 0.8rem 1rem;
+  }
+
+  .mini-stats {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
